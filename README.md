@@ -64,16 +64,24 @@ The infrastructure includes a secure, scalable Virtual Machine Scale Set (VMSS) 
 
 ## Project Structure
 
-* `main.tf` - Core resource definitions.
-* `variables.tf` - Input variables for configuration.
-* `outputs.tf` - Outputs of the deployment.
-* `terraform.tfvars` - Optional file for variable values.
+* provider.tf — Terraform provider configuration for Azure.
+
+* vnet.tf — Resource group, Virtual Network, Load Balancer, Network Security Group, and related networking resources.
+
+* vmss.tf — Virtual Machine Scale Set definition and configuration.
+
+* autoscaling.tf — Autoscaling rules and settings for the VMSS.
+
+* backend.tf — Remote backend configuration to securely store Terraform state files.
 
 ## Notes
-
 * Autoscaling is configured to maintain performance and cost-efficiency.
+
 * Network Security Group restricts access only to traffic from the Load Balancer for enhanced security.
+
 * NAT Gateway allows VMs to securely download updates and packages from the internet.
+
+* Remote backend ensures your Terraform state is preserved and shared safely.
 
 ## Author
 
